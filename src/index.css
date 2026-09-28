@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg: #F3EEDC;
+    --bg-alt: #EAE1C4;
+    --card: #FBF7EC;
+    --card-hover: #FFFFFF;
+    --ink: #2B2620;
+    --ink-soft: #5B5346;
+    --line: rgba(43, 38, 32, 0.15);
+    --indigo: #2A3B5C;
+    --indigo-deep: #1D2A44;
+    --indigo-tint: #DCE2EC;
+    --ginger: #D98E2B;
+    --ginger-deep: #B8721C;
+    --ginger-tint: #F6E4C4;
+    --seal: #B33A2E;
+    --seal-tint: #F1DAD4;
+    --tea: #4B6B4E;
+    --tea-tint: #DCE6DC;
+    --shadow: rgba(43, 38, 32, 0.16);
+
+    /* Shadcn standard theme variables */
+    --background: 44 47% 91%;
+    --foreground: 33 15% 15%;
+    --muted: 44 42% 84%;
+    --muted-foreground: 36 13% 32%;
+    --popover: 43 65% 95%;
+    --popover-foreground: 33 15% 15%;
+    --border: 33 15% 15% / 0.15;
+    --input: 33 15% 15% / 0.18;
+    --primary: 34 72% 51%;
+    --primary-foreground: 33 60% 8%;
+    --secondary: 44 42% 84%;
+    --secondary-foreground: 33 15% 15%;
+    --accent: 38 73% 87%;
+    --accent-foreground: 33 74% 41%;
+    --destructive: 5 59% 44%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 34 72% 51%;
+    --radius: 0.75rem;
+
+    --font-head: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-body: 'Be Vietnam Pro', -apple-system, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .dark, [data-theme="dark"] {
+    --bg: #1E1A15;
+    --bg-alt: #282219;
+    --card: #26201A;
+    --card-hover: #312921;
+    --ink: #EDE5D3;
+    --ink-soft: #BDAF97;
+    --line: rgba(237, 229, 211, 0.15);
+    --indigo: #93A6CC;
+    --indigo-deep: #B9C6E2;
+    --indigo-tint: #2B3549;
+    --ginger: #E6A54C;
+    --ginger-deep: #F0BE79;
+    --ginger-tint: #3A2C17;
+    --seal: #D9836F;
+    --seal-tint: #3A231F;
+    --tea: #8CAE8C;
+    --tea-tint: #243527;
+    --shadow: rgba(0, 0, 0, 0.45);
+
+    --background: 33 18% 10%;
+    --foreground: 41 41% 88%;
+    --muted: 34 23% 13%;
+    --muted-foreground: 38 18% 67%;
+    --popover: 34 20% 12%;
+    --popover-foreground: 41 41% 88%;
+    --border: 41 41% 88% / 0.15;
+    --input: 41 41% 88% / 0.18;
+    --primary: 35 77% 60%;
+    --primary-foreground: 33 60% 8%;
+    --secondary: 34 23% 13%;
+    --secondary-foreground: 41 41% 88%;
+    --accent: 34 43% 16%;
+    --accent-foreground: 36 80% 71%;
+    --destructive: 11 58% 64%;
+    --destructive-foreground: 0 0% 100%;
+    --ring: 35 77% 60%;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, .font-serif-rustic {
+    font-family: var(--font-head);
+  }
+}
+
+/* Custom rustic patterns and receipt jagged edges */
+.weave-pattern {
+  background: repeating-linear-gradient(135deg, var(--bg-alt) 0 10px, var(--card) 10px 20px);
+}
+
+.weave-pattern-dense {
+  background: repeating-linear-gradient(135deg, var(--bg-alt) 0 6px, var(--card) 6px 12px);
+}
+
+.zigzag-receipt {
+  clip-path: polygon(
+    0 0, 100% 0, 100% 97%,
+    97% 100%, 94% 97%, 91% 100%, 88% 97%, 85% 100%,
+    82% 97%, 79% 100%, 76% 97%, 73% 100%, 70% 97%,
+    67% 100%, 64% 97%, 61% 100%, 58% 97%, 55% 100%,
+    52% 97%, 49% 100%, 46% 97%, 43% 100%, 40% 97%,
+    37% 100%, 34% 97%, 31% 100%, 28% 97%, 25% 100%,
+    22% 97%, 19% 100%, 16% 97%, 13% 100%, 10% 97%,
+    7% 100%, 4% 97%, 0 100%
+  );
+  padding-bottom: 2rem;
+}
+
+.checker-strip-vintage {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--seal) 0 14px,
+    var(--card) 14px 28px,
+    var(--indigo) 28px 42px,
+    var(--card) 42px 56px
+  );
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ginger);
+}

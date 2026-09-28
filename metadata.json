@@ -1,0 +1,6 @@
+{
+  "name": "Tạp hoá vùng biên",
+  "description": "Đặc sản vùng biên chính hiệu, đặt trực tiếp từ chợ phiên, giao tận tay với bảo đảm chất lượng và chính sách đổi trả trong 1 giờ.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

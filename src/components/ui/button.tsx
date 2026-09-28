@@ -1,0 +1,58 @@
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/src/lib/utils";
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-semibold transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--ginger)] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 active:scale-[0.98] cursor-pointer",
+  {
+    variants: {
+      variant: {
+        default:
+          "bg-[var(--ginger)] text-[#241704] hover:bg-[var(--ginger-deep)] shadow-sm font-bold",
+        outline:
+          "border border-[var(--indigo)] text-[var(--indigo)] hover:bg-[var(--indigo-tint)]/40 dark:hover:bg-[var(--indigo-tint)]/20",
+        ghost:
+          "text-[var(--ink)] hover:bg-[var(--bg-alt)] border border-[var(--line)]",
+        secondary:
+          "bg-[var(--bg-alt)] text-[var(--ink)] hover:bg-[var(--line)] border border-[var(--line)]",
+        destructive:
+          "bg-[var(--seal)] text-white hover:bg-[var(--seal)]/90 shadow-sm",
+        link: "text-[var(--indigo)] underline-offset-4 hover:underline border-0 p-0 h-auto",
+        tea: "bg-[var(--tea)] text-white hover:bg-[var(--tea)]/90 shadow-sm",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-8 rounded-md px-3 text-xs",
+        lg: "h-12 rounded-xl px-6 text-base",
+        icon: "h-9 w-9 p-0 rounded-full",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";
+
+export { Button, buttonVariants };
